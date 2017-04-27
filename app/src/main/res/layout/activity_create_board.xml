@@ -36,7 +36,7 @@
 
 
             <ImageView
-                android:id="@+id/aircraft"
+                android:id="@+id/vaisseau"
                 android:layout_width="75dp"
                 android:layout_height="70dp"
                 android:layout_weight="1"
@@ -46,7 +46,7 @@
                 tools:layout_editor_absoluteX="0dp"
                 />
             <ImageView
-                android:id="@+id/battleship"
+                android:id="@+id/vaisseau2"
                 android:layout_width="58dp"
                 android:layout_height="56dp"
                 android:background="@drawable/vaisseau2"
@@ -55,7 +55,7 @@
                 tools:layout_editor_absoluteY="0dp"
                 tools:layout_editor_absoluteX="236dp" />
             <ImageView
-                android:id="@+id/destroyer"
+                android:id="@+id/vaisseau3"
                 android:layout_width="79dp"
                 android:layout_height="63dp"
                 android:background="@drawable/vaisseau3"
@@ -64,7 +64,7 @@
                 tools:layout_editor_absoluteY="0dp"
                 tools:layout_editor_absoluteX="155dp" />
             <ImageView
-                android:id="@+id/patrol"
+                android:id="@+id/vaisseau4"
                 android:layout_width="74dp"
                 android:layout_height="64dp"
                 android:background="@drawable/vaisseau4"
@@ -73,7 +73,7 @@
                 tools:layout_editor_absoluteY="0dp"
                 tools:layout_editor_absoluteX="83dp" />
             <ImageView
-                android:id="@+id/submarine"
+                android:id="@+id/vaisseau5"
                 android:layout_width="88dp"
                 android:layout_height="66dp"
                 android:background="@drawable/vaisseau5"
