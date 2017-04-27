@@ -14,7 +14,7 @@ import android.view.View;
 
 public class PixelGrid {
 
-    public class PixelGridView extends View {
+    public static class PixelGridView extends View {
         private int numColumns, numRows;
         private int cellWidth, cellHeight;
         private Paint blackPaint = new Paint();
