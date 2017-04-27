@@ -63,4 +63,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+>>>>>>> 029203d5c25f34b7206f17752b8cdf11ca5cef5a
 </android.support.constraint.ConstraintLayout>

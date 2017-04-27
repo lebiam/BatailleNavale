@@ -26,6 +26,12 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
         String player2Name = choiceName.getStringExtra("player2Name");
 
         textViewCheckpoint.setText(player1Name+" vous allez choisir vos positions.");
+
+        PixelGrid.PixelGridView pixelGrid = new PixelGrid.PixelGridView(this);
+        pixelGrid.setNumColumns(10);
+        pixelGrid.setNumRows(10);
+
+        setContentView(pixelGrid);
     }
 
     @Override
