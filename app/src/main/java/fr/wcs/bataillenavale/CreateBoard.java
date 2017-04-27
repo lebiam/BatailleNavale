@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,8 +21,8 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_board);
 
-        textViewCheckpoint = (TextView)findViewById(R.id.textViewCheckpoint);
-        buttonReady = (Button)findViewById(R.id.buttonReady);
+        textViewCheckpoint = (TextView) findViewById(R.id.textViewCheckpoint);
+        buttonReady = (Button) findViewById(R.id.buttonReady);
         buttonReady.setOnClickListener(this);
 
         board = (LinearLayout) findViewById(R.id.board);
@@ -29,7 +31,7 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
         String player1Name = choiceName.getStringExtra("player1Name");
         String player2Name = choiceName.getStringExtra("player2Name");
 
-        textViewCheckpoint.setText(player1Name+" vous allez choisir vos positions.");
+        textViewCheckpoint.setText(player1Name + " vous allez choisir vos positions.");
 
 
 
@@ -50,4 +52,7 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
         }
 
     }
+
+
+
 }
