@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 public class CreateBoard extends AppCompatActivity implements View.OnClickListener {
 
-    TextView textViewCheckpoint;
-    Button buttonReady;
-    LinearLayout board;
+    private TextView textViewCheckpoint;
+    private Button buttonReady;
+    private LinearLayout board;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,8 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
         String player2Name = choiceName.getStringExtra("player2Name");
 
         textViewCheckpoint.setText(player1Name+" vous allez choisir vos positions.");
+
+
 
         PixelGrid.PixelGridView pixelGrid = new PixelGrid.PixelGridView(this);
         pixelGrid.setNumColumns(10);

@@ -99,12 +99,14 @@ public class PixelGrid {
 
         @Override
         public boolean onTouchEvent(MotionEvent event) {
+            boolean [][] mShipTab = new boolean [10][10];
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 int column = (int)(event.getX() / cellWidth);
                 int row = (int)(event.getY() / cellHeight);
-
+                mShipTab[column][row] = true;
                 cellChecked[column][row] = !cellChecked[column][row];
                 invalidate();
+
             }
 
             return true;
