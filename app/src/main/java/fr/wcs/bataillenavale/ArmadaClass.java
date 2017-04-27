@@ -21,7 +21,9 @@ public class ArmadaClass {
         mTwoCasesShip = twoCasesShip;
         mFiveCasesShip = fiveCasesShip;*/
         mShipTab = shipTab;
+
     }
+
 
     /*public FourCasesShipClass getFourCasesShip() {
         return mFourCasesShip;
@@ -70,6 +72,8 @@ public class ArmadaClass {
     public void setShipTab(boolean[][] mShipTab) {
         this.mShipTab = mShipTab;
     }
+
+
 
     public int getArmadaDurability() {
         return armadaDurability;
