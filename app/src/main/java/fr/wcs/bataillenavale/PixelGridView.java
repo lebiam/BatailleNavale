@@ -40,9 +40,10 @@ import android.widget.Toast;
             super(context, attrs);
             blackPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         }
-        public boolean[][] getmShipTab() {
+        public boolean[][] getShipTab() {
             return mShipTab;
         }
+
 
         public void setNumColumns(int numColumns) {
             this.numColumns = numColumns;

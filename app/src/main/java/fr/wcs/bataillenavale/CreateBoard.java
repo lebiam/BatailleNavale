@@ -17,9 +17,17 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
     private TextView textViewCheckpoint;
     private Button buttonReady;
     private Button buttonPush;
-    private LinearLayout board;
+    private LinearLayout boardPlayer1;
+    private LinearLayout boardPlayer2;
     private String player1Name;
     private String player2Name;
+    private PixelGridView mPixelGridView;
+    private PixelGridViewPlayerTwo mPixelGridViewPlayerTwo;
+    private static int CONSTANT_STEP_PLAYER_1 = 0;
+    private static int CONSTANT_STEP_PLAYER_2 = 1;
+    private int step = 0;
+    private Button start;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +39,12 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
         buttonReady.setOnClickListener(this);
         buttonPush = (Button)findViewById(R.id.buttonPush);
         buttonPush.setOnClickListener(this);
+        start = (Button) findViewById(R.id.start);
+        start.setOnClickListener(this);
 
 
-        board = (LinearLayout) findViewById(R.id.board);
+        boardPlayer1 = (LinearLayout) findViewById(R.id.board);
+        boardPlayer2 = (LinearLayout) findViewById(R.id.bordPlayer2);
 
         Intent choiceName = getIntent();
         player1Name = choiceName.getStringExtra("player1Name");
@@ -43,12 +54,20 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
 
 
 
-        PixelGridView pixelGrid = new PixelGridView(this);
-        pixelGrid.setNumColumns(10);
-        pixelGrid.setNumRows(10);
+        mPixelGridView = new PixelGridView(this);
+        mPixelGridView.setNumColumns(10);
+        mPixelGridView.setNumRows(10);
 
-        board.addView(pixelGrid);
-        board.setVisibility(INVISIBLE);
+        mPixelGridViewPlayerTwo = new PixelGridViewPlayerTwo(this);
+        mPixelGridViewPlayerTwo.setNumColumns(10);
+        mPixelGridViewPlayerTwo.setNumRows(10);
+
+
+        boardPlayer1.addView(mPixelGridView);
+        boardPlayer2.addView(mPixelGridViewPlayerTwo);
+        boardPlayer1.setVisibility(INVISIBLE);
+        boardPlayer2.setVisibility(INVISIBLE);
+        start.setVisibility(INVISIBLE);
     }
 
 
@@ -56,14 +75,34 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
 
         if (v == buttonReady) {
-            board.setVisibility(View.VISIBLE);
+            boardPlayer1.setVisibility(View.VISIBLE);
             buttonReady.setVisibility(INVISIBLE);
+            textViewCheckpoint.setVisibility(INVISIBLE);
         }
         if (v == buttonPush){
-            board.setVisibility(INVISIBLE);
-            textViewCheckpoint.setVisibility(View.VISIBLE);
-            textViewCheckpoint.setText(player2Name+", à ton tour !");
-            buttonReady.setVisibility(View.VISIBLE);
+            if (step == CONSTANT_STEP_PLAYER_1) {
+                boardPlayer1.setVisibility(INVISIBLE);
+                textViewCheckpoint.setVisibility(View.VISIBLE);
+                textViewCheckpoint.setText(player2Name + ", à ton tour !");
+                buttonReady.setVisibility(View.VISIBLE);
+                ArmadaClass armadaPlayer1 = new ArmadaClass(mPixelGridView.getShipTab());
+                boardPlayer1.setVisibility(INVISIBLE);
+                boardPlayer2.setVisibility(View.VISIBLE);
+                buttonReady.setVisibility(INVISIBLE);
+                step++;
+                return;
+            }
+            if (step == CONSTANT_STEP_PLAYER_2) {
+                ArmadaClass armadaPlayer2 = new ArmadaClass(mPixelGridViewPlayerTwo.getShipTabPlayerTwo());
+                boardPlayer2.setVisibility(INVISIBLE);
+                textViewCheckpoint.setVisibility(View.VISIBLE);
+                textViewCheckpoint.setText(player1Name + " " + player2Name + " préparez vous à une partie déjantée !");
+                start.setVisibility(View.VISIBLE);
+            }
+        }
+
+        if (v == start){
+
         }
 
     }
