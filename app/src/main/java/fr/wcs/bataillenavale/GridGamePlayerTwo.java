@@ -19,6 +19,7 @@ public class GridGamePlayerTwo extends View{
     private Paint blackPaint = new Paint();
     private boolean[][] cellChecked;
     private boolean [][] tabPlayerOne;
+    public static boolean HASSHOOTPTWO = false;
 
     public GridGamePlayerTwo(Context context) {
         this(context, null);
@@ -103,14 +104,23 @@ public class GridGamePlayerTwo extends View{
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            int column = (int)(event.getX() / cellWidth);
-            int row = (int)(event.getY() / cellHeight);
+        if (HASSHOOTPTWO == false) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                int column = (int) (event.getX() / cellWidth);
+                int row = (int) (event.getY() / cellHeight);
+                if (tabPlayerOne[column][row]) {
+                    if (cellChecked[column][row] = !cellChecked[column][row]) {
+                        cellChecked[column][row] = !cellChecked[column][row];
+                    }
+                    cellChecked[column][row] = !cellChecked[column][row];
+                    invalidate();
+                }
+                HASSHOOTPTWO = true;
 
-            cellChecked[column][row] = !cellChecked[column][row];
-            invalidate();
+            }
+
+            return true;
         }
-
         return true;
     }
 
