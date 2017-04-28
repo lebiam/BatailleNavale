@@ -1,6 +1,7 @@
 package fr.wcs.bataillenavale;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,9 @@ public class Game extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        Typeface game_font = Typeface.createFromAsset(getAssets(), "fonts/Starjout.ttf");
+
+
         Intent goPlay = getIntent();
         armadaClassPlayer1 = (ArmadaClass) goPlay.getExtras().get("Player1");
         armadaClassPlayer2 = (ArmadaClass) goPlay.getExtras().get("Player2");
@@ -37,6 +41,7 @@ public class Game extends AppCompatActivity {
         boardPlayer1 = (LinearLayout) findViewById(R.id.boardGamePlayer1);
         boardPlayer2 = (LinearLayout) findViewById(R.id.boardGamePlayer2);
         textViewMain = (TextView)findViewById(R.id.textViewMain);
+        textViewMain.setTypeface(game_font);
         buttonMain = (Button)findViewById(R.id.buttonMain);
 
         gridGamePlayerOne = new GridGamePlayerOne(this);

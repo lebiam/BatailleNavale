@@ -20,6 +20,7 @@ public class GridGamePlayerTwo extends View{
     private boolean[][] cellChecked;
     private boolean [][] tabPlayerOne;
     public static boolean HASSHOOTPTWO = false;
+    private int playerOneLife = 17;
 
     public GridGamePlayerTwo(Context context) {
         this(context, null);
@@ -113,6 +114,7 @@ public class GridGamePlayerTwo extends View{
                         cellChecked[column][row] = !cellChecked[column][row];
                     }
                     cellChecked[column][row] = !cellChecked[column][row];
+                    playerOneLife--;
                     invalidate();
                 }
                 HASSHOOTPTWO = true;

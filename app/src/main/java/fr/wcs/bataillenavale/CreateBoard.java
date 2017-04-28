@@ -1,6 +1,7 @@
 package fr.wcs.bataillenavale;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +37,11 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_board);
 
+        Typeface game_font = Typeface.createFromAsset(getAssets(), "fonts/Starjout.ttf");
+
+
         textViewCheckpoint = (TextView) findViewById(R.id.textViewCheckpoint);
+        textViewCheckpoint.setTypeface(game_font);
         buttonReady = (Button) findViewById(R.id.buttonReady);
         buttonReady.setOnClickListener(this);
         buttonPush = (Button)findViewById(R.id.buttonPush);
@@ -52,7 +57,7 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
         player1Name = choiceName.getStringExtra("player1Name");
         player2Name = choiceName.getStringExtra("player2Name");
 
-        textViewCheckpoint.setText(player1Name + "vous allez choisir vos positions.");
+        textViewCheckpoint.setText(player1Name +" "+ "vous allez choisir vos positions.");
 
 
 
