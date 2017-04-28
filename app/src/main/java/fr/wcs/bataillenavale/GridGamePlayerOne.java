@@ -115,6 +115,7 @@ public class GridGamePlayerOne extends View {
             int row = (int)(event.getY() / cellHeight);
 
             cellChecked[column][row] = !cellChecked[column][row];
+
             invalidate();
         }
 
