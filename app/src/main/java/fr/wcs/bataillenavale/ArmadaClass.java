@@ -1,10 +1,12 @@
 package fr.wcs.bataillenavale;
 
+import java.io.Serializable;
+
 /**
  * Created by apprenti on 27/04/17.
  */
 
-public class ArmadaClass {
+public class ArmadaClass implements Serializable{
 
     /*private FourCasesShipClass mFourCasesShip;
     private ThreeCasesShipClass mThreeCasesShipOne;

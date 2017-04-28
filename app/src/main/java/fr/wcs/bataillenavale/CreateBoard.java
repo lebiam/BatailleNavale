@@ -27,6 +27,8 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
     private static int CONSTANT_STEP_PLAYER_2 = 1;
     private int step = 0;
     private Button start;
+    private ArmadaClass armadaPlayer1;
+    private ArmadaClass armadaPlayer2;
 
 
     @Override
@@ -85,7 +87,7 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
                 textViewCheckpoint.setVisibility(View.VISIBLE);
                 textViewCheckpoint.setText(player2Name + ", à ton tour !");
                 buttonReady.setVisibility(View.VISIBLE);
-                ArmadaClass armadaPlayer1 = new ArmadaClass(mPixelGridView.getShipTab());
+                armadaPlayer1 = new ArmadaClass(mPixelGridView.getShipTab());
                 boardPlayer1.setVisibility(INVISIBLE);
                 boardPlayer2.setVisibility(View.VISIBLE);
                 buttonReady.setVisibility(INVISIBLE);
@@ -93,7 +95,7 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
                 return;
             }
             if (step == CONSTANT_STEP_PLAYER_2) {
-                ArmadaClass armadaPlayer2 = new ArmadaClass(mPixelGridViewPlayerTwo.getShipTabPlayerTwo());
+                armadaPlayer2 = new ArmadaClass(mPixelGridViewPlayerTwo.getShipTabPlayerTwo());
                 boardPlayer2.setVisibility(INVISIBLE);
                 textViewCheckpoint.setVisibility(View.VISIBLE);
                 textViewCheckpoint.setText(player1Name + " " + player2Name + " préparez vous à une partie déjantée !");
@@ -103,6 +105,12 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
 
         if (v == start){
 
+            Intent goPlay = new Intent(this, Game.class);
+            goPlay.putExtra("Player1", armadaPlayer1);
+            goPlay.putExtra("Player2", armadaPlayer2);
+            goPlay.putExtra("Pseudo", player1Name);
+            goPlay.putExtra("Pseudo", player2Name);
+            startActivity(goPlay);
         }
 
     }
