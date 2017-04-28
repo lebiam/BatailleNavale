@@ -112,7 +112,7 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
             goPlay.putExtra("Player1", armadaPlayer1);
             goPlay.putExtra("Player2", armadaPlayer2);
             goPlay.putExtra("Pseudo", player1Name);
-            goPlay.putExtra("Pseudo", player2Name);
+            goPlay.putExtra("Pseudo2", player2Name);
             startActivity(goPlay);
         }
 

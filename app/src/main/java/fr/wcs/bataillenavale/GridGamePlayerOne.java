@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 /**
  * Created by apprenti on 28/04/17.
@@ -20,6 +21,7 @@ public class GridGamePlayerOne extends View {
     private Paint blackPaint = new Paint();
     private boolean[][] cellChecked;
     private boolean [][] tabPlayerTwo;
+    public static Boolean HASSHOOT = false;
 
     public GridGamePlayerOne(Context context) {
         this(context, null);
@@ -110,15 +112,26 @@ public class GridGamePlayerOne extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            int column = (int)(event.getX() / cellWidth);
-            int row = (int)(event.getY() / cellHeight);
 
-            cellChecked[column][row] = !cellChecked[column][row];
 
-            invalidate();
+        if (HASSHOOT == false) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                int column = (int) (event.getX() / cellWidth);
+                int row = (int) (event.getY() / cellHeight);
+                if (tabPlayerTwo[column][row]) {
+                    if (cellChecked[column][row] = !cellChecked[column][row]) {
+                        cellChecked[column][row] = !cellChecked[column][row];
+                    }
+                    cellChecked[column][row] = !cellChecked[column][row];
+                    invalidate();
+                }
+                HASSHOOT = true;
+
+
+            }
+
+            return true;
         }
-
         return true;
     }
 
