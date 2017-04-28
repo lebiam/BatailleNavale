@@ -70,6 +70,7 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
         boardPlayer1.setVisibility(INVISIBLE);
         boardPlayer2.setVisibility(INVISIBLE);
         start.setVisibility(INVISIBLE);
+        buttonPush.setVisibility(INVISIBLE);
     }
 
 
@@ -80,6 +81,7 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
             boardPlayer1.setVisibility(View.VISIBLE);
             buttonReady.setVisibility(INVISIBLE);
             textViewCheckpoint.setVisibility(INVISIBLE);
+            buttonPush.setVisibility(View.VISIBLE);
         }
         if (v == buttonPush){
             if (step == CONSTANT_STEP_PLAYER_1) {
@@ -100,6 +102,7 @@ public class CreateBoard extends AppCompatActivity implements View.OnClickListen
                 textViewCheckpoint.setVisibility(View.VISIBLE);
                 textViewCheckpoint.setText(player1Name + " " + player2Name + " préparez vous à une partie déjantée !");
                 start.setVisibility(View.VISIBLE);
+                buttonPush.setVisibility(INVISIBLE);
             }
         }
 

@@ -113,6 +113,7 @@ public class GridGamePlayerOne extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
+
         if (HASSHOOT == false) {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 int column = (int) (event.getX() / cellWidth);
@@ -125,6 +126,7 @@ public class GridGamePlayerOne extends View {
                     invalidate();
                 }
                 HASSHOOT = true;
+
 
             }
 
